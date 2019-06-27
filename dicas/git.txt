@@ -1,0 +1,66 @@
+1 - Criar o repositoiro na pasta do projeto desejado
+
+	git init
+
+2 - Identificação no GIT
+
+	git config --global user.name "seu nome"
+	git config --global user.email "seu email"
+
+3 - verificar o repositorio
+
+	git status
+
+4 - Adicionar alterações do projeto no git
+
+	git add .
+
+5 - comitar as alterações no git
+
+	git commit -m "descrição da alteração"
+
+6 - Verificar os commites de um repositorio
+
+	git log 
+	git log --oneline
+
+7 - depois das alterações não commitadas, quero voltar para o commit anterior
+
+	git clean -df
+	git checkout -- .
+
+8 - para desfazer o ultimo commit preservando as alterações
+
+	git reset --soft HEAD~1
+
+9 - remover o ultimo commit excluindo as alterações do ultimo commit
+
+	git reset --hard HEAD~1
+
+10 - para dar uma olhada em algum commit anterior
+
+	git checkout <codigo do commit>
+
+11 - voltar o codigo para o ultimo commit
+
+	git checkout <nome do branch>
+
+12 - Associar um repositorio remoto ao seu repositorio local
+
+	git remote add origin <URI>
+
+13 - para trocar a associação do repositorio remoto
+
+	git remote set-url origin <URI>
+
+14 - subir o repositorio local para o github
+	
+	git push -u origin master
+	
+15 - baixando o codigo de um repositorio no github
+
+	git clone <URI>
+
+16 - atualizando o repositorio local de acordo com o repositorio do github
+	
+	git pull origin master

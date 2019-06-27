@@ -1,0 +1,17 @@
+- Criação do Projeto
+
+   comando              nome projeto
+create-react-native-app people
+
+
+- Instalação do Axios
+
+	E:\ALURA\React Native 1\Projeto\people
+
+- Executar projeto
+
+	npm rum android 
+
+- Instalação do React Navigation
+
+	npm install --save react-navigation
