@@ -11,7 +11,10 @@ export default class PeopleDetailPage extends React.Component{
                     source={{ uri: people.picture.large}} 
                     style={styles.avatar}
                 />
-                <Text> eu sou a detail </Text>
+                <View style={styles.campoView}>
+                    <Text style={styles.campoDescricao}> Eu Sou Marcinho do DENDÊ </Text>
+                    <Text>e-mail: {people.email}</Text>
+                </View>
             </View>
         );
     }
@@ -22,6 +25,14 @@ const styles = StyleSheet.create({
         padding: 15,
     },
     avatar: {
-        aspectRatio: 1
-    }
+        aspectRatio: 1,
+    },
+    campoDescricao:{
+        padding: 5,
+        color: 'green',        
+    },
+    campoView:{
+        marginTop: 10,
+        backgroundColor: '#6ca2f7',
+    },
 });

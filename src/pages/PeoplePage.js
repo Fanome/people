@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, ScrollView, Text, View } from 'react-native';
 
 //import Header from '../components/Header';
 import PeopleList from '../components/PeopleList';
@@ -17,7 +17,7 @@ export default class PeoplePage extends React.Component {
 
   componentDidMount(){
     axios
-      .get('https://randomuser.me/api/?nat=br&results=5')
+      .get('https://randomuser.me/api/?nat=br&results=20')
       .then(response => {
         const {results} = response.data;
         this.setState({
@@ -29,13 +29,13 @@ export default class PeoplePage extends React.Component {
   render() {
     //this.props.navigation.navigate('PeopleDetail');
     return (
-      <View>
+      <ScrollView>
         <PeopleList 
           peoples={this.state.peoples}
           onPressItem={pageParams => {
             this.props.navigation.navigate('PeopleDetail', pageParams);
           }}/>
-      </View>
+      </ScrollView>
     );
   }
 }
