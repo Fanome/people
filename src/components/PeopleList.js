@@ -29,7 +29,7 @@ const PeopleList = props => {
             keyExtractor= {item => item.name.first}
         />
     );
-};
+}; 
 
 const styles = StyleSheet.create ({
     container: {
