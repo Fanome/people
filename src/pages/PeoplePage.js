@@ -13,6 +13,7 @@ export default class PeoplePage extends React.Component {
     this.state = {
       peoples: [],
       loading: false,
+      error: false,
     };
   }
 
@@ -27,31 +28,45 @@ export default class PeoplePage extends React.Component {
             peoples: results,
             loading: false,
           });
-      })
+      }).catch(erro => {
+          this.setState({ 
+            loading: false,
+            error: true,
+          })
+      });
     }, 2500) 
   } 
 
- /*  renderLoading(){
+  renderPage(){
     if(this.state.loading){
       return <ActivityIndicator size="large" color="#6ca2f7" />;
-    }else{
-      return null;
     }
-  } */
+    if(this.state.error){
+      return  <Text style={styles.error}> Ops... Algo deu errado </Text>;
+    }
+    return ( <PeopleList 
+              peoples={this.state.peoples}
+              onPressItem={pageParams => {
+              this.props.navigation.navigate('PeopleDetail', pageParams);
+            }}/>
+    );
+  } 
 
   render() {
     return (
       <View style={styles.container}>
-        { /*this.renderLoading() */}  
-        {
+        { this.renderPage() }  
+        {/*
           this.state.loading
             ? <ActivityIndicator size="large" color="#6ca2f7" />
-            : <PeopleList 
-                peoples={this.state.peoples}
-                onPressItem={pageParams => {
-                this.props.navigation.navigate('PeopleDetail', pageParams);
-              }}/>
-        } 
+            : this.state.error
+              ? <Text style={styles.error}> Ops... Algo deu errado </Text>
+              : <PeopleList 
+                  peoples={this.state.peoples}
+                  onPressItem={pageParams => {
+                  this.props.navigation.navigate('PeopleDetail', pageParams);
+                }}/>
+        */} 
       </View>
     );
   }
@@ -62,4 +77,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
    },
+   error:{
+     color: 'red',
+     alignSelf: 'center',
+     fontSize: 18,
+   }
 }); 
